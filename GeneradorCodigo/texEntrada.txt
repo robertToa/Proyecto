@@ -1,0 +1,12 @@
+int: a;
+int: b = 4;
+bool: c;
+float: d; 
+char: e;
+int: f;
+int: a = 3;
+int: a = e;
+a = 4;
+c = e;
+if ( a == b ) { a = b + c ; b = a + b ; }
+d = e + b * 3 - 40;
