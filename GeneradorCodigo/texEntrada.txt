@@ -1,12 +1,12 @@
 int: a;
 int: b = 4;
 bool: c;
-float: d; 
+float: d; a = 4;
 char: e;
 int: f;
-int: a = 3;
-int: a = e;
-a = 4;
+int: a = 3; int: a = e;
 c = e;
+if ( e == c ) { a = b + c * d - c ;}
 if ( a == b ) { a = b + c ; b = a + b ; }
 d = e + b * 3 - 40;
+if ( e == c ) { a = b + c * d - c ; } else { a = b + c * d - c ; }

@@ -9,7 +9,7 @@ public class VenPrincipal {
 		PrincipalSin sintactico=new PrincipalSin();
 		GenCod generadorCodio=new GenCod(); 
 	}	
-
+	
 	public static void main (String [] args ){
 		new VenPrincipal();
 	}

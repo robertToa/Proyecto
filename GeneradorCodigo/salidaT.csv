@@ -9,6 +9,9 @@ No Token Class;bool:;3
 No Token Class;c;;3
 No Token Class;float:;4
 No Token Class;d;;4
+Identificador;a;4
+Caracter Especial;=;4
+No Token Class;4;;4
 No Token Class;char:;5
 No Token Class;e;;5
 No Token Class;int:;6
@@ -17,42 +20,39 @@ No Token Class;int:;7
 Identificador;a;7
 Caracter Especial;=;7
 No Token Class;3;;7
-No Token Class;int:;8
-Identificador;a;8
+No Token Class;int:;7
+Identificador;a;7
+Caracter Especial;=;7
+No Token Class;e;;7
+Identificador;c;8
 Caracter Especial;=;8
 No Token Class;e;;8
+Palabra reservada;if;9
+Caracter Especial;(;9
+Identificador;a;9
+Operador Compuesto;==;9
+Identificador;b;9
+Caracter Especial;);9
+Caracter Especial;{;9
 Identificador;a;9
 Caracter Especial;=;9
-No Token Class;4;;9
-Identificador;c;10
+Identificador;b;9
+Caracter Especial;+;9
+Identificador;c;9
+Caracter Especial;;;9
+Identificador;b;9
+Caracter Especial;=;9
+Identificador;a;9
+Caracter Especial;+;9
+Identificador;b;9
+Caracter Especial;;;9
+Caracter Especial;};9
+Identificador;d;10
 Caracter Especial;=;10
-No Token Class;e;;10
-Palabra reservada;if;11
-Caracter Especial;(;11
-Identificador;a;11
-Operador Compuesto;==;11
-Identificador;b;11
-Caracter Especial;);11
-Caracter Especial;{;11
-Identificador;a;11
-Caracter Especial;=;11
-Identificador;b;11
-Caracter Especial;+;11
-Identificador;c;11
-Caracter Especial;;;11
-Identificador;b;11
-Caracter Especial;=;11
-Identificador;a;11
-Caracter Especial;+;11
-Identificador;b;11
-Caracter Especial;;;11
-Caracter Especial;};11
-Identificador;d;12
-Caracter Especial;=;12
-Identificador;e;12
-Caracter Especial;+;12
-Identificador;b;12
-Caracter Especial;*;12
-Literales entero;3;12
-Caracter Especial;-;12
-No Token Class;40;;12
+Identificador;e;10
+Caracter Especial;+;10
+Identificador;b;10
+Caracter Especial;*;10
+Literales entero;3;10
+Caracter Especial;-;10
+No Token Class;40;;10

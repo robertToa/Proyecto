@@ -15,17 +15,17 @@ public class GenCod{
 	String cadena,text,ver;
 	FileReader fileNam;
 	BufferedReader br;
-	public  GenCod(){
+	
+		public  GenCod(){
 			try{
 				fileNam=new FileReader("texEntrada.txt");
 				br=new BufferedReader(fileNam);
 				while(((cadena=br.readLine())!=null)){
 					StringTokenizer st = new StringTokenizer(cadena);
-					
 					try{
 						while (st.hasMoreTokens()){
 							text="";
-							ver=st.nextToken();
+							ver=st.nextToken(" ");
 							if(lex.PalabraReservada(ver)){
 								try{
 									while (st.hasMoreTokens()){
@@ -35,7 +35,7 @@ public class GenCod{
 							else{
 								text=st.nextToken(";");
 								VerificacionPrincipal(ver+" "+text+" ;");
-							}
+							}							
 						}}catch(Exception e){}
 				}
 			}
@@ -47,7 +47,7 @@ public class GenCod{
 				StringTokenizer st = new StringTokenizer(eti.get(i));
 				try{
 					System.out.println("E"+i+": ");
-					System.out.println("load r"+lis.indexOf("if"+i)+" => t4");
+					System.out.println("load r"+lis.indexOf("E"+i)+" => t4");
 					while (st.hasMoreTokens()){
 						text=st.nextToken(";");
 						if(!text.equals(" ")){
@@ -81,7 +81,14 @@ public class GenCod{
 			case 2:
 				StringTokenizer st = new StringTokenizer(texto);
 				if(sint.ControlFlujo(texto)){
-					String ver=st.nextToken("}");
+					try{
+						ver="";
+						while (st.hasMoreTokens()){
+							ver+=st.nextToken()+" ";
+							}
+						}
+						catch(Exception e){}
+					//String ver=st.nextToken("}");
 					ComandosdeControldeFlujo(ver);
 					i=5;
 				}
@@ -97,6 +104,7 @@ public class GenCod{
 				}
 				break;				
 			case 4:
+				System.out.println("PALBRA MAL: "+texto);
 				System.out.println("No se encuentra insertado esa sentencia para codig de maquina");
 			}
 		}
@@ -212,19 +220,33 @@ public class GenCod{
 	
 	void Funif(String texto){
 		StringTokenizer st = new StringTokenizer(texto);
-		String palabra, ver;
+		String palabra, ver="";
 		palabra=st.nextToken();
 		palabra=st.nextToken(")");
 		ExpresLogica(palabra);
 		try{
 			palabra=st.nextToken(" ");
 			palabra=st.nextToken(); palabra="";
-			while (st.hasMoreTokens()){	
-				palabra+=st.nextToken()+" ";
+			ver=st.nextToken();
+			while (st.hasMoreTokens() && !ver.equals("else")){
+				if(!ver.equals("}")){
+					palabra+=ver+" ";
+				}
+				ver=st.nextToken();
 			}
 		}catch(Exception e){}
+		System.out.println("TEXTO: "+ver);
 		eti.add(palabra);
-		lis.add("if"+(eti.size()-1));
+		lis.add("E"+(eti.size()-1));
+		if(ver.equals("else")){
+				palabra=st.nextToken();
+				ver=st.nextToken("}");
+				eti.add(ver);
+				lis.add("E"+(eti.size()-1));
+		}else{
+			eti.add(" ");
+			lis.add("E"+(eti.size()-1));
+		}
 	}
 	
 	void ExpresLogica(String texto){

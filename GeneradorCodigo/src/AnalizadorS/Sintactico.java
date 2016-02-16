@@ -335,9 +335,9 @@ public class Sintactico{
 		int i=0;
 		try{
 		while (st.hasMoreTokens()){
-			if(i==3)
+			if(i==5)
 				verificar=false;
-			for(i=0 ; i<3 ;i++){
+			for(i=0 ; i<5 ;i++){
 				String palabra=st.nextToken(" ");
 				switch(i){
 				case 0:
@@ -346,16 +346,22 @@ public class Sintactico{
 						veri=st.nextToken();
 					}
 					if(!CFlujo1(palabra))
-						{i=3;break;}
+						{i=5;break; }
 					else i=1;
 				case 1:
 					if(!veri.equals("else"))
-						i=3;
+						i=5;
 					break;
 				case 2:
-					verificar=true;
-					//comando
+					if(!palabra.equals("{"))
+						i=5;
 					break;
+				case 3:
+					palabra=st.nextToken("}");
+					break;
+				case 4:
+					if(palabra.equals("}"))
+						verificar=true;
 				}
 			}
 		}}catch(Exception e){}
@@ -452,7 +458,7 @@ public class Sintactico{
 		for(int i=0;i<4;i++){
 			switch(i){
 			case 0:
-				if(CFlujo2(texto)){					
+				if(CFlujo2(texto)){				
 					i=4;verificar=true;}
 				break;
 			case 1:
@@ -542,25 +548,28 @@ public class Sintactico{
 	
 	public boolean ComnadosSimples(String texto){
 		boolean verificar=false;
-		for(int i=0;i<5;i++){
+		for(int i=0;i<6;i++){
 			switch(i){
 			case 0:
 				if(ControlFlujo(texto)){
-					i=5;verificar=true;}
+					i=6;verificar=true;}
 				break;
 			case 1:
 				if(Atribucion(texto)){
-					i=5;verificar=true;}
+					i=6;verificar=true;}
 				break;
 			case 2:
 				if(LLamadaFunciones(texto)){
-					i=5;verificar=true;}
+					i=6;verificar=true;}
 				break;
 			case 3:
 				if(OperESR(texto)){
-					i=5;verificar=true;}
+					i=6;verificar=true;}
 				break;
 			case 4:
+				if(Declaracion(texto)){
+					i=6;verificar=true;}				
+			case 5:
 				if(texto.equals(""))
 					verificar=true;
 				break;
